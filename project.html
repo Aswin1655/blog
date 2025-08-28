@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Simple Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Simple Blog</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="contact">
+      <h2>Contact Us</h2>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <label>
+          Name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" id="email" required />
+        </label>
+
+        <label>
+          Subject
+          <input type="text" name="subject" id="subject" required />
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" id="message" rows="6" required></textarea>
+        </label>
+
+        <button type="submit">Send Message</button>
+        <p id="formFeedback" class="feedback" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Simple Blog</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const subject = form.subject.value.trim();
+      const message = form.message.value.trim();
+
+      // basic validation
+      if (!name || !email || !subject || !message) {
+        feedback.textContent = 'Please fill in all fields.';
+        feedback.style.color = '#b00020';
+        return;
+      }
+
+      // simple email format check
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(email)) {
+        feedback.textContent = 'Please enter a valid email address.';
+        feedback.style.color = '#b00020';
+        return;
+      }
+
+      // Here you would send the data to a server.
+      // For demo, we simply show success text and reset form.
+      feedback.textContent = 'Thanks — your message has been received!';
+      feedback.style.color = '#0a7';
+      form.reset();
+    });
+  </script>
+</body>
+</html>

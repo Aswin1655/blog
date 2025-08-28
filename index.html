@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Blog — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Simple Blog</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="blog-list">
+      <h2>Latest Posts</h2>
+      <ul class="posts">
+        <li class="post">
+          <h3>Understanding CSS Grid</h3>
+          <p>Learn how CSS Grid lays out two-dimensional content and why it’s great for responsive layouts. Includes practical examples.</p>
+        </li>
+
+        <li class="post">
+          <h3>Intro to JavaScript Promises</h3>
+          <p>A friendly walkthrough of promises, async/await, and common patterns to handle asynchronous operations in the browser.</p>
+        </li>
+
+        <li class="post">
+          <h3>Data Cleaning for Beginners</h3>
+          <p>Step-by-step guide on cleaning messy datasets: missing values, normalization, and basic validation techniques for ML prep.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Simple Blog • Built for learning</p>
+    </div>
+  </footer>
+
+  <script>
+    // small nicety: set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
